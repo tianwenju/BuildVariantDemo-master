@@ -1,0 +1,37 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion "22.0.0"
+
+    defaultConfig {
+        applicationId "com.manijshrestha.buildvariantdemo"
+        minSdkVersion 19
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    productFlavors {
+        demo {
+            applicationId = "com.manijshrestha.weatherdemo.demo"
+            resValue "string", "app_name", "Demo App"
+        }
+        full {
+            applicationId = "com.manijshrestha.weatherdemo.full"
+            resValue "string", "app_name", "Full App"
+        }
+    }
+}
+
+dependencies {
+    compile 'com.android.support:appcompat-v7:22.0.0'
+    compile 'com.squareup.retrofit:retrofit:1.9.0'
+}
